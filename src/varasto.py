@@ -24,10 +24,12 @@ class Varasto:
     def lisaa_varastoon(self, maara):
         if maara < 0:
             return
-        if maara <= self.paljonko_mahtuu():
-            self.saldo = self.saldo + maara
-        else:
-            self.saldo = self.tilavuus
+        if maara > 0:
+            if maara > 0:
+                if maara <= self.paljonko_mahtuu():
+                    self.saldo = self.saldo + maara
+                else:
+                    self.saldo = self.tilavuus
 
     def ota_varastosta(self, maara):
         if maara < 0:
@@ -41,6 +43,16 @@ class Varasto:
         self.saldo = self.saldo - maara
 
         return maara
+
+    def juttu(self):
+        print("Juttu")
+
+    def juttu2(self):
+        print("Juttu2")
+
+    def juttu3(self):
+        print("Juttu3")
+
 
     def __str__(self):
         return f"saldo = {self.saldo}, vielä tilaa {self.paljonko_mahtuu()}"
